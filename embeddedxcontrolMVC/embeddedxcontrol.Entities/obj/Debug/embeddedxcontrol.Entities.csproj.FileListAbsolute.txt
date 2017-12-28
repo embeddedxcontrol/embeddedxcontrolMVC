@@ -1,0 +1,5 @@
+C:\Users\XPS 13\Documents\Visual Studio 2017\Projects\embeddedxcontrolMVC\embeddedxcontrol.Entities\obj\Debug\embeddedxcontrol.Entities.csprojResolveAssemblyReference.cache
+C:\Users\XPS 13\Documents\Visual Studio 2017\Projects\embeddedxcontrolMVC\embeddedxcontrol.Entities\bin\Debug\embeddedxcontrol.Entities.dll
+C:\Users\XPS 13\Documents\Visual Studio 2017\Projects\embeddedxcontrolMVC\embeddedxcontrol.Entities\bin\Debug\embeddedxcontrol.Entities.pdb
+C:\Users\XPS 13\Documents\Visual Studio 2017\Projects\embeddedxcontrolMVC\embeddedxcontrol.Entities\obj\Debug\embeddedxcontrol.Entities.dll
+C:\Users\XPS 13\Documents\Visual Studio 2017\Projects\embeddedxcontrolMVC\embeddedxcontrol.Entities\obj\Debug\embeddedxcontrol.Entities.pdb

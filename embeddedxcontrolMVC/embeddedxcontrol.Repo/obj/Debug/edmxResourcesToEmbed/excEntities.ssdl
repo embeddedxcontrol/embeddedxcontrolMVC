@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="excModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\XPS 13\DOCUMENTS\VISUAL STUDIO 2017\PROJECTS\EMBEDDEDXCONTROLMVC\EMBEDDEDXCONTROL\APP_DATA\EXC.MDF.dbo.AspNetBios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AspNetBios">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="Biography" />
+      <PropertyRef Name="DateCreated" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Biography" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Photo" Type="image" />
+    <Property Name="PhotoName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\XPS 13\DOCUMENTS\VISUAL STUDIO 2017\PROJECTS\EMBEDDEDXCONTROLMVC\EMBEDDEDXCONTROL\APP_DATA\EXC.MDF.dbo.AspNetFeedback' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AspNetFeedback">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="ProjectId" />
+      <PropertyRef Name="Text" />
+      <PropertyRef Name="CreatedDate" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="AuthorId" Type="nvarchar" MaxLength="128" />
+    <Property Name="UnregisteredName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reference" Type="nvarchar" MaxLength="128" />
+    <Property Name="ProjectId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetImages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProjectId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ImageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImageDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ImageFile" Type="image" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetProjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="AuthorId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Topic" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Summary" Type="nvarchar" MaxLength="500" />
+    <Property Name="FullText" Type="nvarchar(max)" />
+    <Property Name="Published" Type="bit" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateModified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\XPS 13\DOCUMENTS\VISUAL STUDIO 2017\PROJECTS\EMBEDDEDXCONTROLMVC\EMBEDDEDXCONTROL\APP_DATA\EXC.MDF.dbo.AspNetProjectUpdates' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AspNetProjectUpdates">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Update" />
+      <PropertyRef Name="DateCreated" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProjectId" Type="nvarchar" MaxLength="128" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Update" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProjectLink" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\XPS 13\DOCUMENTS\VISUAL STUDIO 2017\PROJECTS\EMBEDDEDXCONTROLMVC\EMBEDDEDXCONTROL\APP_DATA\EXC.MDF.dbo.AspNetTopicsList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AspNetTopicsList">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="TopicItem" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="TopicItem" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Admin" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\XPS 13\DOCUMENTS\VISUAL STUDIO 2017\PROJECTS\EMBEDDEDXCONTROLMVC\EMBEDDEDXCONTROL\APP_DATA\EXC.MDF.dbo.AspNetVersionControl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AspNetVersionControl">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Version" />
+      <PropertyRef Name="Notes" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Version" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="VersionReference" Type="nvarchar" MaxLength="20" />
+    <Property Name="Notes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__AspNetBio__UserI__32E0915F">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetBios" Type="Self.AspNetBios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetBios">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AspNetFee__Autho__3B75D760">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="AspNetFeedback" Type="Self.AspNetFeedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetFeedback">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AspNetFee__Proje__3C69FB99">
+    <End Role="AspNetProjects" Type="Self.AspNetProjects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetFeedback" Type="Self.AspNetFeedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetProjects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetFeedback">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AspNetIma__Proje__403A8C7D">
+    <End Role="AspNetProjects" Type="Self.AspNetProjects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetImages" Type="Self.AspNetImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetProjects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetImages">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AspNetPro__Autho__38996AB5">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetProjects" Type="Self.AspNetProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetProjects">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AspNetPro__Proje__4316F928">
+    <End Role="AspNetProjects" Type="Self.AspNetProjects" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetProjectUpdates" Type="Self.AspNetProjectUpdates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetProjects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetProjectUpdates">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="excModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetImages" EntityType="Self.AspNetImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetProjects" EntityType="Self.AspNetProjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserData" EntityType="Self.AspNetUserData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetBios" EntityType="Self.AspNetBios" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AspNetBios].[Id] AS [Id], 
+    [AspNetBios].[UserId] AS [UserId], 
+    [AspNetBios].[Biography] AS [Biography], 
+    [AspNetBios].[Photo] AS [Photo], 
+    [AspNetBios].[PhotoName] AS [PhotoName], 
+    [AspNetBios].[DateCreated] AS [DateCreated]
+    FROM [dbo].[AspNetBios] AS [AspNetBios]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AspNetFeedback" EntityType="Self.AspNetFeedback" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AspNetFeedback].[Id] AS [Id], 
+    [AspNetFeedback].[Type] AS [Type], 
+    [AspNetFeedback].[AuthorId] AS [AuthorId], 
+    [AspNetFeedback].[UnregisteredName] AS [UnregisteredName], 
+    [AspNetFeedback].[Reference] AS [Reference], 
+    [AspNetFeedback].[ProjectId] AS [ProjectId], 
+    [AspNetFeedback].[Text] AS [Text], 
+    [AspNetFeedback].[CreatedDate] AS [CreatedDate]
+    FROM [dbo].[AspNetFeedback] AS [AspNetFeedback]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AspNetProjectUpdates" EntityType="Self.AspNetProjectUpdates" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AspNetProjectUpdates].[Id] AS [Id], 
+    [AspNetProjectUpdates].[ProjectId] AS [ProjectId], 
+    [AspNetProjectUpdates].[Title] AS [Title], 
+    [AspNetProjectUpdates].[Update] AS [Update], 
+    [AspNetProjectUpdates].[ProjectLink] AS [ProjectLink], 
+    [AspNetProjectUpdates].[DateCreated] AS [DateCreated]
+    FROM [dbo].[AspNetProjectUpdates] AS [AspNetProjectUpdates]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AspNetTopicsList" EntityType="Self.AspNetTopicsList" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AspNetTopicsList].[Id] AS [Id], 
+    [AspNetTopicsList].[TopicItem] AS [TopicItem]
+    FROM [dbo].[AspNetTopicsList] AS [AspNetTopicsList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AspNetVersionControl" EntityType="Self.AspNetVersionControl" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AspNetVersionControl].[Id] AS [Id], 
+    [AspNetVersionControl].[Version] AS [Version], 
+    [AspNetVersionControl].[VersionReference] AS [VersionReference], 
+    [AspNetVersionControl].[Notes] AS [Notes], 
+    [AspNetVersionControl].[Date] AS [Date]
+    FROM [dbo].[AspNetVersionControl] AS [AspNetVersionControl]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__AspNetBio__UserI__32E0915F" Association="Self.FK__AspNetBio__UserI__32E0915F">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetBios" EntitySet="AspNetBios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AspNetFee__Autho__3B75D760" Association="Self.FK__AspNetFee__Autho__3B75D760">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetFeedback" EntitySet="AspNetFeedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AspNetFee__Proje__3C69FB99" Association="Self.FK__AspNetFee__Proje__3C69FB99">
+      <End Role="AspNetProjects" EntitySet="AspNetProjects" />
+      <End Role="AspNetFeedback" EntitySet="AspNetFeedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AspNetIma__Proje__403A8C7D" Association="Self.FK__AspNetIma__Proje__403A8C7D">
+      <End Role="AspNetProjects" EntitySet="AspNetProjects" />
+      <End Role="AspNetImages" EntitySet="AspNetImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AspNetPro__Autho__38996AB5" Association="Self.FK__AspNetPro__Autho__38996AB5">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetProjects" EntitySet="AspNetProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AspNetPro__Proje__4316F928" Association="Self.FK__AspNetPro__Proje__4316F928">
+      <End Role="AspNetProjects" EntitySet="AspNetProjects" />
+      <End Role="AspNetProjectUpdates" EntitySet="AspNetProjectUpdates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

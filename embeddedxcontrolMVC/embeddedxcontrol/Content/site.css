@@ -1,0 +1,96 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*Custom CSS form menu (Home About Projects Contact)*/
+.menu {
+    margin: auto;
+    padding: 0px; /*new*/
+    width: 99%;
+    height: 25px;
+    /*padding-top:5px; ORIGINAL*/
+}
+
+    .menu li {
+        font-family: 'Open Sans', sans-serif;
+        /*display: inline;*/
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        /*padding-right:20px; ORIGINAL*/
+    }
+
+    .menu a {
+        text-decoration: none;
+        padding: 6px 30px; /*new*/
+        font-family: 'Open Sans', sans-serif;
+        border: solid 1px;
+        border-radius: 3px;
+        border-color: #09202e;
+        color: #00c1dd; /* Font color to match Logo 1 */
+    }
+
+    .menu a:hover {
+        color: #ff6e25; /* Font color to match Logo 1 */
+        /*background:url(/Images/menu-hover.png);*/
+        border: solid 1px;
+        border-radius: 3px;
+        border-color: #ff6e25;
+    }
+
+
+    .header-images {
+        height: auto;
+        width: 100%;
+        background: url(/Images/banner.png) no-repeat top right, url(/Images/header1.png) no-repeat top right;
+    }
+
+        .header-images h1 {
+            font-family: 'Open Sans', sans-serif;
+            color: white;
+            font-size: 35px;
+            padding-left: 40px;
+            padding-top:5px;
+            margin-top: 0px;
+            /*padding-top: -15px;*/
+            display: block;
+            height: 50px;
+        }
+
+    .header-images p {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        padding-left: 35px;
+        padding-right: 550px;
+    }
+
+    .header-images a {
+        text-decoration: none;
+    }
+
+    .equal {
+        display: flex;
+        /*display: -webkit-flex;*/
+        flex-wrap: wrap;
+    }

@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="excModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageFile" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="Project" Relationship="Self.FK__Images__ProjectI__2C538F61" FromRole="Images" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AuthorId" Type="Int32" Nullable="false" />
+    <Property Name="Topic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Summary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FullText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Published" Type="Boolean" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateModified" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Images" Relationship="Self.FK__Images__ProjectI__2C538F61" FromRole="Projects" ToRole="Images" />
+    <NavigationProperty Name="Feedbacks" Relationship="Self.FK__Feedback__Projec__297722B6" FromRole="Projects" ToRole="Feedback" />
+    <NavigationProperty Name="UserData" Relationship="Self.FK__Projects__Author__2A6B46EF" FromRole="Projects" ToRole="UserData" />
+    <NavigationProperty Name="ProjectUpdates" Relationship="Self.FK__ProjectUp__Proje__2B5F6B28" FromRole="Projects" ToRole="ProjectUpdates" />
+  </EntityType>
+  <EntityType Name="UserData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Alias" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Admin" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK__Projects__Author__2A6B46EF" FromRole="UserData" ToRole="Projects" />
+    <NavigationProperty Name="Bios" Relationship="Self.FK__Bios__UserId__38B96646" FromRole="UserData" ToRole="Bios" />
+    <NavigationProperty Name="Feedbacks" Relationship="Self.FK__Feedback__Author__1940BAED" FromRole="UserData" ToRole="Feedback" />
+  </EntityType>
+  <EntityType Name="Bio">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="Biography" />
+      <PropertyRef Name="DateCreated" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Biography" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="PhotoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="UserData" Relationship="Self.FK__Bios__UserId__38B96646" FromRole="Bios" ToRole="UserData" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="ProjectId" />
+      <PropertyRef Name="Text" />
+      <PropertyRef Name="CreatedDate" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthorId" Type="Int32" />
+    <Property Name="UnregisteredName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Reference" Type="Int32" />
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Project" Relationship="Self.FK__Feedback__Projec__297722B6" FromRole="Feedback" ToRole="Projects" />
+    <NavigationProperty Name="UserData" Relationship="Self.FK__Feedback__Author__1940BAED" FromRole="Feedback" ToRole="UserData" />
+  </EntityType>
+  <EntityType Name="ProjectUpdate">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Update" />
+      <PropertyRef Name="DateCreated" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Update" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProjectLink" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Project" Relationship="Self.FK__ProjectUp__Proje__2B5F6B28" FromRole="ProjectUpdates" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="TopicsList">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="TopicItem" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TopicItem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VersionControl">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Version" />
+      <PropertyRef Name="Notes" />
+      <PropertyRef Name="Date" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Version" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VersionReference" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="FK__Images__ProjectI__2C538F61">
+    <End Role="Projects" Type="Self.Project" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Images" Type="Self.Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Images">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__Projec__297722B6">
+    <End Role="Projects" Type="Self.Project" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projects__Author__2A6B46EF">
+    <End Role="UserData" Type="Self.UserData" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Projects" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProjectUp__Proje__2B5F6B28">
+    <End Role="Projects" Type="Self.Project" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProjectUpdates" Type="Self.ProjectUpdate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectUpdates">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bios__UserId__38B96646">
+    <End Role="UserData" Type="Self.UserData" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bios" Type="Self.Bio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bios">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__Author__1940BAED">
+    <End Role="UserData" Type="Self.UserData" Multiplicity="0..1" />
+    <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Feedback">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="excDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Images" EntityType="Self.Image" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <EntitySet Name="UserDatas" EntityType="Self.UserData" />
+    <EntitySet Name="Bios" EntityType="Self.Bio" />
+    <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+    <EntitySet Name="ProjectUpdates" EntityType="Self.ProjectUpdate" />
+    <EntitySet Name="TopicsLists" EntityType="Self.TopicsList" />
+    <EntitySet Name="VersionControls" EntityType="Self.VersionControl" />
+    <AssociationSet Name="FK__Images__ProjectI__2C538F61" Association="Self.FK__Images__ProjectI__2C538F61">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Images" EntitySet="Images" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__Projec__297722B6" Association="Self.FK__Feedback__Projec__297722B6">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projects__Author__2A6B46EF" Association="Self.FK__Projects__Author__2A6B46EF">
+      <End Role="UserData" EntitySet="UserDatas" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProjectUp__Proje__2B5F6B28" Association="Self.FK__ProjectUp__Proje__2B5F6B28">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="ProjectUpdates" EntitySet="ProjectUpdates" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bios__UserId__38B96646" Association="Self.FK__Bios__UserId__38B96646">
+      <End Role="UserData" EntitySet="UserDatas" />
+      <End Role="Bios" EntitySet="Bios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__Author__1940BAED" Association="Self.FK__Feedback__Author__1940BAED">
+      <End Role="UserData" EntitySet="UserDatas" />
+      <End Role="Feedback" EntitySet="Feedbacks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

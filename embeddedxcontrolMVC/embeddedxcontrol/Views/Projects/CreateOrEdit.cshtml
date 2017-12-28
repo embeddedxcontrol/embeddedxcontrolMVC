@@ -1,0 +1,75 @@
+﻿@model embeddedxcontrol.Models.ProjectEditViewModel
+
+@{
+    ViewBag.Title = "CREATE AND EDIT PROJECT";
+}
+
+<div class="col-sm-10 col-sm-offset-1">
+    <div class="col-sm-12" style="background-color:white; height:100%; padding-bottom:20px;">
+        <h2 style="padding-top:12px;">@ViewBag.Title</h2>
+        <hr style="border-color:gray; margin-top:0px;" />
+
+        <form id="projectForm" novalidate action="@Url.Action("SaveProject", "Projects")" method="post">
+
+            @Html.HiddenFor(p => p.DateCreated)
+
+            <div class="form-group">
+               @Html.LabelFor(p => p.Title)
+                <div class="input-group">
+                    @Html.TextBoxFor(p => p.Title, new {style = "width:500px; max-width:100%"})
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.DateCreated)
+                :
+                @Model.DateCreated
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Topic)
+                <div class="input-group">
+                    @Html.TextBoxFor(p => p.Topic, new { style = "width:500px; max-width:100%" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Summary)
+                <div class="input-group" style="width:100%;">
+                    @Html.TextAreaFor(p => p.Summary, new {style = "max-width:100% !important;", @class = "form-control", rows = 4 })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Published)
+                <div class="input-group">
+                    <span>
+                        <label>True</label>
+                        @Html.RadioButtonFor(p => p.Published, true)
+                    </span>
+                    <span>
+                        <label>False</label>
+                        @Html.RadioButtonFor(p => p.Published, false)
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.FullText)
+                <div class="input-group" style="width:100%;">
+                    
+                    @Html.TextAreaFor(p => p.FullText, new {style = "max-width:100% !important;", @class = "form-control", rows = 40} )
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" formaction="@Url.Action("SaveProject")" formmethod="post" value="Save Project" class="btn btn-primary" />
+            </div>
+                
+
+
+</form>
+
+    </div>
+</div>
+

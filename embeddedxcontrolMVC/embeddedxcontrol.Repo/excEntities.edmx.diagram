@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="28ef58bb5b78426a9d2a75d4debb4704" Name="Diagram1">
+        <EntityTypeShape EntityType="excModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="excModel.AspNetImage" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="excModel.AspNetProject" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="excModel.AspNetRole" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="excModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="excModel.AspNetUserData" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="excModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="excModel.AspNetUser" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="excModel.AspNetBio" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="excModel.AspNetFeedback" Width="1.5" PointX="10.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="excModel.AspNetProjectUpdate" Width="1.5" PointX="7.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="excModel.AspNetTopicsList" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="excModel.AspNetVersionControl" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="excModel.FK__AspNetIma__Proje__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="excModel.FK__AspNetFee__Proje__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="excModel.FK__AspNetPro__Autho__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="excModel.FK__AspNetPro__Proje__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="excModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="excModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="excModel.FK__AspNetBio__UserI__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="excModel.FK__AspNetFee__Autho__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="excModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
