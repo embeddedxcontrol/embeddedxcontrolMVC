@@ -9,7 +9,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using embeddedxcontrol.Models;
-using embeddedxcontrol.Entities;
 
 namespace embeddedxcontrol.Controllers
 {

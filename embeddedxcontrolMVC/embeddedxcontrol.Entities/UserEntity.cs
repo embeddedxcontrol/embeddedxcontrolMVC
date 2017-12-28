@@ -11,7 +11,7 @@ namespace embeddedxcontrol.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UserEntity()
         {
-            this.Projects = new HashSet<ProjectSummaryViewModel>();
+            this.Projects = new HashSet<ProjectEntity>();
             this.Bios = new HashSet<BioEntity>();
             this.Feedbacks = new HashSet<FeedbackEntity>();
         }
@@ -26,7 +26,7 @@ namespace embeddedxcontrol.Entities
         public bool Admin { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProjectSummaryViewModel> Projects { get; set; }
+        public virtual ICollection<ProjectEntity> Projects { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BioEntity> Bios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

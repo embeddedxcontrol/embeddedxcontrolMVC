@@ -14,7 +14,7 @@ namespace embeddedxcontrol.Controllers
     public class ProjectsController : Controller
     {
         private readonly IProjectServices _projectServices;
-
+        
         #region Public Constructor
         /// <summary>
         /// Public constructor to initialize project service instance
@@ -27,9 +27,9 @@ namespace embeddedxcontrol.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<Models.ProjectSummaryViewModel> _projectSummaries;
-            ProjectServices _projectServices = new ProjectServices();
-            _projectSummaries = _projectServices.GetAllProjects();
+            //IEnumerable<Models.ProjectSummaryViewModel> _projectSummaries;
+            //ProjectServices _projectServices = new ProjectServices();
+            //_projectSummaries = _projectServices.GetAllProjects();
             
             return View();
         }
@@ -48,7 +48,7 @@ namespace embeddedxcontrol.Controllers
             if (ModelState.IsValid)
             {
                 //Map ProjectEditViewModel to ProjectEntity
-                Entities.ProjectSummaryViewModel _project = new Entities.ProjectSummaryViewModel();
+                ProjectEntity _project = new ProjectEntity();
                 if (String.IsNullOrEmpty(model.Id))
                 {
                     

@@ -15,6 +15,6 @@ namespace embeddedxcontrol.Entities
         public string ProjectLink { get; set; }
         public System.DateTime DateCreated { get; set; }
 
-        public virtual ProjectSummaryViewModel Project { get; set; }
+        //public virtual ProjectSummaryViewModel Project { get; set; }
     }
 }

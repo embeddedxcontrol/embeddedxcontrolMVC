@@ -11,7 +11,7 @@ namespace embeddedxcontrol.Business.Interfaces
     {
         BioEntity GetBioById(int bioId);
         IEnumerable<BioEntity> GetAllBios();
-        int CreateBio(BioEntity bioEntity);
+        int CreateBio(embeddedxcontrol.Entities.BioEntity bioEntity);
         bool UpdateBio(int bioId, BioEntity bioEntity);
         bool DeleteBio(int bioId);
     }

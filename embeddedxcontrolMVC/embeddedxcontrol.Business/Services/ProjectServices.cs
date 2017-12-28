@@ -28,7 +28,7 @@ namespace embeddedxcontrol.Business.Services
         /// </summary>
         /// <param name="projectId"></param>
         /// <returns>Single Project Entity</returns>
-        public ProjectSummaryViewModel GetProjectById(int projectId)
+        public ProjectEntity GetProjectById(int projectId)
         {
             return null;
         }
@@ -37,7 +37,7 @@ namespace embeddedxcontrol.Business.Services
         /// Fetches all projects
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<ProjectSummaryViewModel> GetAllProjects()
+        public IEnumerable<ProjectEntity> GetAllProjects()
         {
             return null;
         }
@@ -47,7 +47,7 @@ namespace embeddedxcontrol.Business.Services
         /// </summary>
         /// <param name="projectEntity"></param>
         /// <returns></returns>
-        public string CreateProject(ProjectSummaryViewModel projectEntity)
+        public string CreateProject(ProjectEntity projectEntity)
         {
 
             using (var scope = new TransactionScope())
@@ -77,7 +77,7 @@ namespace embeddedxcontrol.Business.Services
         /// <param name="projectId"></param>
         /// <param name="projectEntity"></param>
         /// <returns></returns>
-        public bool UpdateProject(int projectId, ProjectSummaryViewModel projectEntity)
+        public bool UpdateProject(int projectId, ProjectEntity projectEntity)
         {
             //Connection to repository
             return true;
