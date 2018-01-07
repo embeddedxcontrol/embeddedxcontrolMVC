@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<embeddedxcontrol.Models.ProjectListViewModel>
+
+@{
     ViewBag.MenuTitle = "TOPICS";
     ViewBag.PageTitle = "PROJECTS";
 }
@@ -16,19 +18,24 @@
     <div class="col-sm-12" style="background-color:white; height:100%; padding-bottom:20px;">
         <h2 style="padding-top:12px;">@ViewBag.PageTitle</h2>
         <hr style="border-color:gray; margin-top:0px;" />
-        <p>
-            Use this area to provide additional information.
-            Use this area to provide additional information.
-            Use this area to provide additional information.
-            Use this area to provide additional information.
-            Use this area to provide additional information.
-            Use this area to provide additional information.
-            Use this area to provide additional information.
-        </p>
-        <p>Use this area to provide additional information.</p>
-        <p>Use this area to provide additional information.</p>
-        <p>Use this area to provide additional information.</p>
-    </div>
+        <form id="projectForm" novalidate action="@Url.Action("SaveProject", "Projects")" method="post">
+            <ul class="col-sm-12">
+
+                @foreach (var proj in Model)
+                {
+                    <li>@Html.DisplayName(proj.Title)  <br />
+                        @Html.DisplayName(proj.Author) <br />
+                        @Html.DisplayName(proj.Summary) 
+                    </li>
+                    
+                }
+
+
+            </ul>
+        </form>
+
+
+</div>
 </div>
 
 

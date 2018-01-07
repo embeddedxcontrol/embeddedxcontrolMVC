@@ -11,7 +11,14 @@ namespace embeddedxcontrol.Models
         public string Title { get; set; }
 
         [Display(Name = "Summary")]
-        public IEnumerable<ProjectSummaryViewModel> Projects{ get; set; }
+        public string Summary { get; set; }
+
+        [Display(Name = "Topics")]
+        public string Topic { get; set; }
+
+        [DisplayFormat(NullDisplayText = "Author not listed")]
+        [Display(Name = "Author")]
+        public string Author { get; set; }
 
 
     }

@@ -39,7 +39,21 @@ namespace embeddedxcontrol.Business.Services
         /// <returns></returns>
         public IEnumerable<ProjectEntity> GetAllProjects()
         {
-            return null;
+            // get all models (some properties)
+            List<ProjectEntity> projectList = _unitOfWork.ProjectRepository
+                .Query()
+                .Select(x => new ProjectEntity
+                {
+                    Title = x.Title,
+                    Summary = x.Summary,
+                    AuthorId = x.AuthorId,
+                    Topic = x.Topic
+
+                })
+                .ToList();
+
+            return projectList;
+
         }
 
         /// <summary>
