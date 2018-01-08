@@ -28,28 +28,42 @@ namespace embeddedxcontrol.Business.Services
         /// </summary>
         /// <param name="projectId"></param>
         /// <returns>Single Project Entity</returns>
-        public ProjectEntity GetProjectById(int projectId)
+        public ProjectEntity GetProjectById(string projectId)
         {
-            return null;
+            AspNetProject rp = _unitOfWork.ProjectRepository.GetByID(projectId);
+            ProjectEntity ep = new ProjectEntity();
+            //AspNetProject to EntityProject mapping
+            ep.Id = rp.Id;
+            ep.Title = rp.Title;
+            ep.Topic = rp.Topic;
+            ep.DateCreated = rp.DateCreated;
+            ep.DateModified = rp.DateModified;
+            ep.AuthorId = rp.AuthorId;
+            ep.FullText = rp.FullText;
+
+            return ep;
         }
 
         /// <summary>
         /// Fetches all projects
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<ProjectEntity> GetAllProjects()
+        public IEnumerable<ProjectEntity> GetAllProjects(string topicFilter)
         {
+            topicFilter = topicFilter ?? "";
             // get all models (some properties)
-            List<ProjectEntity> projectList = _unitOfWork.ProjectRepository
-                .Query()
+            List <ProjectEntity> projectList = _unitOfWork.ProjectRepository
+                .Query()   //x => x.Topic.Contains(topicFilter)
                 .Select(x => new ProjectEntity
                 {
+                    Id = x.Id,
                     Title = x.Title,
                     Summary = x.Summary,
                     AuthorId = x.AuthorId,
                     Topic = x.Topic
 
                 })
+                .Where(x=>x.Topic.Contains(topicFilter))
                 .ToList();
 
             return projectList;

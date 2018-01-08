@@ -8,6 +8,9 @@ namespace embeddedxcontrol.Models
 {
     public class ProjectListViewModel
     {
+        [System.Web.Mvc.HiddenInput(DisplayValue = false)]
+        public string Id { get; set; }
+
         public string Title { get; set; }
 
         [Display(Name = "Summary")]
@@ -19,7 +22,6 @@ namespace embeddedxcontrol.Models
         [DisplayFormat(NullDisplayText = "Author not listed")]
         [Display(Name = "Author")]
         public string Author { get; set; }
-
 
     }
 }

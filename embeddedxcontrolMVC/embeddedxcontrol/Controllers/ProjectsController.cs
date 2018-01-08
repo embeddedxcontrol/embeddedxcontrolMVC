@@ -26,35 +26,28 @@ namespace embeddedxcontrol.Controllers
         }
         #endregion
 
-        public ActionResult Index()
+        public ActionResult Index(string topicFilter)
         {
             IEnumerable<ProjectEntity> projectSummaries;
-            ProjectServices _projectServices = new ProjectServices();
-            projectSummaries = _projectServices.GetAllProjects();
+            //ProjectServices _projectServices = new ProjectServices();
+            projectSummaries = _projectServices.GetAllProjects(topicFilter);
 
-            //Map ProjectEntity to ProjectListViewModel
-            
+            //Map ProjectEntity to ProjectListViewModel       
             List<ProjectListViewModel> plvm = new List<ProjectListViewModel>();
-
             foreach (ProjectEntity p in projectSummaries)
             {
                 //Project list item pli
                 ProjectListViewModel pli = new ProjectListViewModel();
+                pli.Id = p.Id;
                 pli.Title = p.Title;
                 pli.Summary = p.Summary ?? "Summary not found";
                 pli.Author = p.AuthorId ?? "No author listed";
                 pli.Topic = p.Topic ?? "";
                 plvm.Add(pli);
             }
-
-            //var uniqueColors =
-            //   (from dbo in database.MainTable
-            //    where dbo.Property == true
-            //    select dbo.Color.Name).Distinct().OrderBy(name => name);
-
-            var topics = (from data in projectSummaries.AsQueryable() select data.Topic).Distinct().OrderBy(Topic => Topic).ToList();                  //.Select(projectSummaries.T).Distinct().OrderBy(Topic => Topic);
-
-            ViewBag.Topics = topics;
+            //Write out topics list and pass to page through ViewBag
+            var topics = (from data in projectSummaries.AsQueryable() select data.Topic).Distinct().OrderBy(Topic => Topic).ToList();
+            ViewBag.Topics = (List<string>)topics;
 
             return View(plvm);
         }
@@ -65,6 +58,16 @@ namespace embeddedxcontrol.Controllers
             viewModel.DateCreated = DateTime.Now;
             //Return CreateOrEdit view
             return View("CreateOrEdit", viewModel);
+        }
+
+        public ActionResult GetProject(string id)
+        {
+            ProjectEntity fullProject;
+            fullProject = _projectServices.GetProjectById(id);
+
+            //Seperate topic tags into list
+
+            return View("ProjectView", fullProject);
         }
 
         [HttpPost]
@@ -97,25 +100,6 @@ namespace embeddedxcontrol.Controllers
             return RedirectToAction("Index");
         }
            
-
-
-            //public ActionResult GetAllProjects()
-            //{
-            //    //var projects = _projectServices.GetAllProjects();
-            //    //if (projects != null)
-            //    //{
-            //    //    return Request.CreateResponse(HttpStatusCode.OK, projects);
-            //    //}
-
-
-            //    return Request.CreateResponse(HttpStatusCode.NotFound, "Projects Not Found");
-            //}
-
-            //ProjectEntity GetProjectById(int projectId);
-            //IEnumerable<ProjectEntity> GetAllProjects();
-            //int CreateProject(ProjectEntity projectEntity);
-            //bool UpdateProject(int projectId, ProjectEntity projectEntity);
-            //bool DeleteProject(int projectId);
       
 
     }

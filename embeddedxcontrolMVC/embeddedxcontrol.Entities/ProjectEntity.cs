@@ -16,7 +16,7 @@ namespace embeddedxcontrol.Entities
             this.ProjectUpdates = new HashSet<ProjectUpdateEntity>();
         }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Title { get; set; }
         public string AuthorId { get; set; }
         public string Topic { get; set; }

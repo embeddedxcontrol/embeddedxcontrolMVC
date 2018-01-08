@@ -9,8 +9,8 @@ namespace embeddedxcontrol.Business.Interfaces
 {
     public interface IProjectServices
     {
-        ProjectEntity GetProjectById(int projectId);
-        IEnumerable<ProjectEntity> GetAllProjects();
+        ProjectEntity GetProjectById(string projectId);
+        IEnumerable<ProjectEntity> GetAllProjects(string topicFilter);
         string CreateProject(ProjectEntity projectEntity);
         bool UpdateProject(int projectId, ProjectEntity projectEntity);
         bool DeleteProject(int projectId);

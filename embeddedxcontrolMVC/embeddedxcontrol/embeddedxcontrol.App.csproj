@@ -315,6 +315,7 @@
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Shared\_PageMenuPartial.cshtml" />
     <Content Include="Views\Projects\CreateOrEdit.cshtml" />
+    <Content Include="Views\Projects\ProjectView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\embeddedxcontrol.Business\embeddedxcontrol.Business.csproj">

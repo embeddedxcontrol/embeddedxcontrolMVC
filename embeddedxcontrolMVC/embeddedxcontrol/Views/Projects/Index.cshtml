@@ -11,28 +11,69 @@
     <div class="col-sm-12" style="background-color:white; height:100%; padding-bottom:20px;">
         <h2 style="padding-top:12px;">@ViewBag.MenuTitle</h2>
         <hr style="border-color:gray; margin-top:0px;" />
-        <p>Use this area to provide additional information.</p>
-    </div>
+        <ul class="col-sm-12 list-unstyled">
+            @foreach (var item in ViewBag.Topics)
+            {
+                <li>@Html.ActionLink((string)item, "Index", "Projects", routeValues: new { topicFilter = (string)item }, htmlAttributes: null)</li>
+            }
+            
+        </ul>
+            <p>Click on topic to filter results.</p>
+</div>
 </div>
 <div class="col-sm-9">
     <div class="col-sm-12" style="background-color:white; height:100%; padding-bottom:20px;">
         <h2 style="padding-top:12px;">@ViewBag.PageTitle</h2>
         <hr style="border-color:gray; margin-top:0px;" />
-        <form id="projectForm" novalidate action="@Url.Action("SaveProject", "Projects")" method="post">
-            <ul class="col-sm-12">
+        <ul class="col-sm-12 list-unstyled">
 
-                @foreach (var proj in Model)
-                {
-                    <li>@Html.DisplayName(proj.Title)  <br />
-                        @Html.DisplayName(proj.Author) <br />
-                        @Html.DisplayName(proj.Summary) 
-                    </li>
-                    
-                }
+            @foreach (var proj in Model)
+            {
+                <li class="col-sm-12 text-left" style="overflow:hidden;"><a href="@Url.Action("GetProject", routeValues: new {id = (string)proj.Id })" class="btn btn-primary col-sm-12">
+                <div class="col-sm-12 d-flex justify-content-end">
+                    @Html.DisplayName(proj.Title)  <br />
+                    @Html.DisplayName(proj.Author)
+                    <hr />
+                </div>
+                <div class="container col-sm-12 d-flex justify-content-end">
+                    <p class="text-left">
+                        @Html.DisplayName(proj.Summary)
+                    </p>
+                </div>
+                </a></li>
 
 
-            </ul>
-        </form>
+
+                @*<li style="border:2px solid #00c1dd; border-radius:4px; margin-top:10px; margin-left:10px; margin-right:30px; min-height:50px; overflow:hidden;" onclick="redir('<%# Eval(" Id") %>
+                    ');">
+
+                    <div style="margin:0px; padding:0px;">
+                        <%--Total width of block is 700px--%>
+
+                        <div style="float:left; background-color:#ff6e25; width:110px; margin:5px; text-align:center; font-size:smaller; border-radius:2px;">
+                            <span class="imgcenter">
+                                <asp:Image runat="server" ImageUrl="~/Images/default_project_summary_thumbnail_image.png" /><%--Resize image to 100px x 100px--%>
+                                </pre><asp:Label ID="lblTopic" runat="server" Text='<%# Eval("Topic") %>' />
+                            </span>
+                        </div>
+                        <div style="float:left; width:490px; margin:5px;">
+                            <h6 style="margin:0px; padding:0px;"><asp:Literal ID="lblTitle" runat="server" Text='<%# Eval("Title") %>' /></h6>
+                            <span style="font-style:italic;">
+                                Author(s)&nbsp:&nbsp<asp:Label runat="server" ID="lblAuthor" Text='<%# Eval("FullName") %>' />
+                                &nbsp ( <asp:Label runat="server" ID="lblDate" OnDataBinding="lblDate_DataBinding" />)
+                            </span>
+                            <hr style="margin-top:3px; margin-bottom:3px;" />
+                            <asp:Label ID="lblSummary" CssClass="article-summary" runat="server" Text='<%# Eval("Summary") %>' />
+                        </div>
+
+                    </div>
+                </li>*@
+
+            }
+
+
+        </ul>
+
 
 
 </div>
