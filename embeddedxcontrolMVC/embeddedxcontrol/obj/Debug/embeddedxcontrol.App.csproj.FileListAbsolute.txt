@@ -208,3 +208,4 @@ C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontro
 C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontrolMVC\embeddedxcontrol\obj\Debug\embeddedxcontrol.App.csproj.GenerateResource.Cache
 C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontrolMVC\embeddedxcontrol\obj\Debug\embeddedxcontrol.dll
 C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontrolMVC\embeddedxcontrol\obj\Debug\embeddedxcontrol.pdb
+C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontrolMVC\embeddedxcontrol\obj\Debug\embeddedxcontrol.App.csproj.CoreCompileInputs.cache

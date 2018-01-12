@@ -121,3 +121,4 @@ C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontro
 C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontrolMVC\embeddedxcontrol.Repo\obj\Debug\embeddedxcontrol.Repo.dll
 C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontrolMVC\embeddedxcontrol.Repo\obj\Debug\embeddedxcontrol.Repo.pdb
 C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontrolMVC\embeddedxcontrol.Repo\obj\Debug\embeddedxcontrol.Repo.csprojResolveAssemblyReference.cache
+C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontrolMVC\embeddedxcontrol.Repo\obj\Debug\embeddedxcontrol.Repo.csproj.CoreCompileInputs.cache

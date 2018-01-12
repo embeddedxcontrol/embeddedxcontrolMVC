@@ -32,3 +32,4 @@ C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontro
 C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontrolMVC\embeddedxcontrol.Business\obj\Debug\embeddedxcontrol.Business.csprojResolveAssemblyReference.cache
 C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontrolMVC\embeddedxcontrol.Business\obj\Debug\embeddedxcontrol.Business.dll
 C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontrolMVC\embeddedxcontrol.Business\obj\Debug\embeddedxcontrol.Business.pdb
+C:\Users\XPS 13\Documents\Visual Studio 2017\EmbeddedXControlGit\embeddedxcontrolMVC\embeddedxcontrol.Business\obj\Debug\embeddedxcontrol.Business.csproj.CoreCompileInputs.cache
