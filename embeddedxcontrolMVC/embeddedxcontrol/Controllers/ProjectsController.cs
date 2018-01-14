@@ -88,6 +88,7 @@ namespace embeddedxcontrol.Controllers
                     _project.Summary = model.Summary;
                     _project.Topic = model.Topic;
                     _project.AuthorId = model.UserId;
+                    _project.FullText = model.FullText;
 
                 }
 
