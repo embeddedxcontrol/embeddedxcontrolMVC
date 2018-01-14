@@ -26,6 +26,7 @@ namespace embeddedxcontrol.Models
         public string Topic { get; set; }
 
         [Display(Name = "Main Content")]
+        [System.Web.Mvc.AllowHtml]
         public string FullText { get; set; }
 
         [Required]
