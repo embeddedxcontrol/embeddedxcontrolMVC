@@ -6,7 +6,7 @@
 
 
 @*Load from Amazon Web Services*@
-@*<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>*@
+<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
 <div class="col-sm-10 col-sm-offset-1">
     <div class="col-sm-12" style="background-color:white; height:100%; padding-bottom:20px;">
         <h2 style="padding-top:12px;">@ViewBag.Title</h2>
@@ -64,15 +64,62 @@
                     @*This is the textarea for drag and drop image functionality*@
                     @Html.TextAreaFor(p => p.FullText, new {style = "max-width:100% !important; height:500px;",@name = "content", @id = "editor" ,@class = "form-control", rows = 30} )
                     <script>
-                        ClassicEditor
-                            .create(document.querySelector('#editor'))
-                            .then(editor => {
-                                console.log(editor);
+                        function encodeImageFileAsBase64Url(file) {
+                            return new Promise(function (resolve) {
+                                var reader = new FileReader();
+                                reader.onloadend = function () {
+                                    resolve(reader.result);
+                                };
 
+                                reader.readAsDataURL(file);
+                            });
+                        }
+
+                        function Base64ImageAdapter(loader) {
+                            this.loader = loader;
+                        }
+
+                        Base64ImageAdapter.prototype.upload = function () {
+                            return encodeImageFileAsBase64Url(this.loader.file)
+                                .then(function (base64src) {
+                                    return {
+                                        default: base64src
+                                    };
+                                });
+                        };
+
+
+                        Base64ImageAdapter.prototype.abort = function () {
+                            // not needed
+                        };
+
+                        ClassicEditor
+                            .create(document.querySelector('#editor'), {
+                                image: {
+                                    // You need to configure the image toolbar too, so it uses the new style buttons.
+                                    toolbar: ['imageTextAlternative', '|', 'imageStyleAlignLeft', 'imageStyleFull', 'imageStyleAlignRight'],
+
+                                    styles: [
+                                        // This option is equal to a situation where no style is applied.
+                                        'imageStyleFull',
+
+                                        // This represents an image aligned to left.
+                                        'imageStyleAlignLeft',
+
+                                        // This represents an image aligned to right.
+                                        'imageStyleAlignRight'
+                                    ]
+                                }
+                            })
+                            .then(editor => {
+                                editor.plugins.get('FileRepository').createAdapter = function (loader) {
+                                    return new Base64ImageAdapter(loader);
+                                };
                             })
                             .catch(error => {
-                                console.log(error);
+                                console.log('CKEditor initialization error', error);
                             });
+
                     </script>
                 </div>
             </div>
