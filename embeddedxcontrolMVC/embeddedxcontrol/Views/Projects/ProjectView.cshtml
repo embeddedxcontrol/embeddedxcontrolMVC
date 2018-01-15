@@ -1,57 +1,56 @@
 ﻿@model embeddedxcontrol.Entities.ProjectEntity
 
-@{
-    ViewBag.Title = "";
-}
 
-<h2>ProjectView</h2>
-
-<div class="col-sm-10 col-sm-offset-1">
-    <div class="col-sm-12" style="background-color:white; height:100%; padding-bottom:20px;">
+<div class="col-md-10 col-md-offset-1">
+    <div class="col-md-12" style="background-color:white; height:100%; padding-bottom:20px;">
         <h2 style="padding-top:12px;">@Html.DisplayName((string)Model.Title)</h2>
         <hr style="border-color:gray; margin-top:0px;" />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.AuthorId)
-            </dt>
+        <div style="width:100%;">
+            <dl class="dl-vertical col-md-12">
+                <dt>
+                    @Html.DisplayNameFor(model => model.AuthorId)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.AuthorId)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.AuthorId)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Topic)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Topic)
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.DateCreated)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateCreated)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.DateCreated)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.DateCreated)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Topic)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Topic)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.FullText)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.FullText)
+                </dt>
 
-            <dd>
-                @Html.Raw(Model.FullText)
-            </dd>
+                <dd>
+                    <div class="imgdiv">
+                        @Html.Raw(Model.FullText)
+                    </div>
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.DateModified)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DateModified)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.DateModified)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.DateModified)
+                </dd>
 
-        </dl>
+            </dl>
+        </div>
 
     <p class="btn btn-default">
         @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@

@@ -15,6 +15,7 @@ namespace embeddedxcontrol.Controllers
     public class ProjectsController : Controller
     {
         private readonly IProjectServices _projectServices;
+        private readonly IUserServices _userServices;
         
         #region Public Constructor
         /// <summary>
@@ -41,7 +42,7 @@ namespace embeddedxcontrol.Controllers
                 pli.Id = p.Id;
                 pli.Title = p.Title;
                 pli.Summary = p.Summary ?? "Summary not found";
-                pli.Author = p.AuthorId ?? "No author listed";
+                pli.Author = _userServices.GetUserDataById(p.AuthorId).UserName ?? "No author listed";
                 pli.Topic = p.Topic ?? "";
                 plvm.Add(pli);
             }

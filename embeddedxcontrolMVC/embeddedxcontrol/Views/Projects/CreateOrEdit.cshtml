@@ -62,7 +62,7 @@
                 <div class="input-group" style="width:100%;">
 
                     @*This is the textarea for drag and drop image functionality*@
-                    @Html.TextAreaFor(p => p.FullText, new {style = "max-width:100% !important; height:500px;",@name = "content", @id = "editor" ,@class = "form-control", rows = 30} )
+                    @Html.TextAreaFor(p => p.FullText, new {style = "max-width:100% !important; min-height:400px !important;",@name = "content", @id = "editor" ,@class = "form-control", @rows = 10} )
                     <script>
                         function encodeImageFileAsBase64Url(file) {
                             return new Promise(function (resolve) {
@@ -111,6 +111,7 @@
                                     ]
                                 }
                             })
+                            .styles
                             .then(editor => {
                                 editor.plugins.get('FileRepository').createAdapter = function (loader) {
                                     return new Base64ImageAdapter(loader);

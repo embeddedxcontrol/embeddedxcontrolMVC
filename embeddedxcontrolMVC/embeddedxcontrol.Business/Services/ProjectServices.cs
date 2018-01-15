@@ -51,8 +51,8 @@ namespace embeddedxcontrol.Business.Services
         public IEnumerable<ProjectEntity> GetAllProjects(string topicFilter)
         {
             topicFilter = topicFilter ?? "";
-            // get all models (some properties)
-            List <ProjectEntity> projectList = _unitOfWork.ProjectRepository
+            //get all models(some properties)
+            List<ProjectEntity> projectList = _unitOfWork.ProjectRepository
                 .Query()   //x => x.Topic.Contains(topicFilter)
                 .Select(x => new ProjectEntity
                 {
@@ -63,7 +63,7 @@ namespace embeddedxcontrol.Business.Services
                     Topic = x.Topic
 
                 })
-                .Where(x=>x.Topic.Contains(topicFilter))
+                .Where(x => x.Topic.Contains(topicFilter))
                 .ToList();
 
             return projectList;

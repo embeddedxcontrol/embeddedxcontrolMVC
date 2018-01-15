@@ -29,7 +29,7 @@ namespace embeddedxcontrol.Repo.UnitOfWork
         private GenericRepository<AspNetProject> _projectRepository;
         private GenericRepository<AspNetProjectUpdate> _projectUpdateRepository;
         private GenericRepository<AspNetTopicsList> _topicsRepository;
-        private GenericRepository<AspNetUserData> _userDataRepository;
+        private GenericRepository<AspNetUser> _userRepository;
         private GenericRepository<AspNetVersionControl> _versionControlRepository;
         #endregion
 
@@ -121,13 +121,13 @@ namespace embeddedxcontrol.Repo.UnitOfWork
         /// <summary>
         /// Get/Set Property for user data repository.
         /// </summary>
-        public GenericRepository<AspNetUserData> UserDataRepository
+        public GenericRepository<AspNetUser> UserRepository
         {
             get
             {
-                if (this._userDataRepository == null)
-                    this._userDataRepository = new GenericRepository<AspNetUserData>(_context);
-                return _userDataRepository;
+                if (this._userRepository == null)
+                    this._userRepository = new GenericRepository<AspNetUser>(_context);
+                return _userRepository;
             }
         }
 

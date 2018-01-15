@@ -3,6 +3,11 @@
     padding-bottom: 20px;
 }
 
+/* Set maximum width on images in ProjectView.cshtml*/
+.imgdiv img {
+    width: 75%;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

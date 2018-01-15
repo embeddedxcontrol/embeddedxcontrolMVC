@@ -9,7 +9,7 @@ namespace embeddedxcontrol.Business.Interfaces
 {
     public interface IUserServices
     {
-        UserEntity GetUserDataById(int userId);
+        UserEntity GetUserDataById(string userId);
         IEnumerable<UserEntity> GetAllUserData();
         int CreateUserData(UserEntity userEntity);
         bool UpdateUser(int userId, UserEntity userEntity);

@@ -51,6 +51,7 @@
     <Compile Include="Interfaces\IVersionControlServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ProjectServices.cs" />
+    <Compile Include="Services\UserServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\embeddedxcontrol.Entities\embeddedxcontrol.Entities.csproj">
