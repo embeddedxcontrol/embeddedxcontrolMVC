@@ -15,7 +15,7 @@ namespace embeddedxcontrol.Controllers
     public class ProjectsController : Controller
     {
         private readonly IProjectServices _projectServices;
-        private readonly IUserServices _userServices;
+        private IUserServices _userServices;
         
         #region Public Constructor
         /// <summary>
@@ -27,11 +27,16 @@ namespace embeddedxcontrol.Controllers
         }
         #endregion
 
+        /// <summary>
+        /// Returns summary view of projects
+        /// </summary>
+        /// <param name="topicFilter"></param>
+        /// <returns></returns>
         public ActionResult Index(string topicFilter)
         {
             IEnumerable<ProjectEntity> projectSummaries;
-            //ProjectServices _projectServices = new ProjectServices();
             projectSummaries = _projectServices.GetAllProjects(topicFilter);
+            _userServices = new UserServices();
 
             //Map ProjectEntity to ProjectListViewModel       
             List<ProjectListViewModel> plvm = new List<ProjectListViewModel>();
@@ -42,7 +47,8 @@ namespace embeddedxcontrol.Controllers
                 pli.Id = p.Id;
                 pli.Title = p.Title;
                 pli.Summary = p.Summary ?? "Summary not found";
-                pli.Author = _userServices.GetUserDataById(p.AuthorId).UserName ?? "No author listed";
+                var authorQuery = _userServices.GetUserDataById(p.AuthorId);
+                pli.Author = !string.IsNullOrWhiteSpace(authorQuery.FirstName) ? string.Concat(authorQuery.FirstName + " " + authorQuery.LastName) : authorQuery.UserName;
                 pli.Topic = p.Topic ?? "";
                 plvm.Add(pli);
             }

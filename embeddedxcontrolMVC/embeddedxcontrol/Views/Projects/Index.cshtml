@@ -27,17 +27,17 @@
         <hr style="border-color:gray; margin-top:0px;" />
         <ul class="col-sm-12 list-unstyled">
 
-            @foreach (var proj in Model)
+            @foreach (var p in Model)
             {
-                <li class="col-sm-12 text-left" style="overflow:hidden;"><a href="@Url.Action("GetProject", routeValues: new {id = (string)proj.Id })" class="btn btn-primary col-sm-12">
+                <li class="col-sm-12 text-left" style="overflow:hidden;"><a href="@Url.Action("GetProject", routeValues: new {id = (string)p.Id })" class="btn btn-primary col-sm-12">
                 <div class="col-sm-12 d-flex justify-content-end">
-                    @Html.DisplayName(proj.Title)  <br />
-                    @Html.DisplayName(proj.Author)
+                    @Html.DisplayName(p.Title)  <br />
+                    <p>@Html.Raw(p.Author)</p>
                     <hr />
                 </div>
                 <div class="container col-sm-12 d-flex justify-content-end">
                     <p class="text-left">
-                        @Html.DisplayName(proj.Summary)
+                        @Html.DisplayName(p.Summary)
                     </p>
                 </div>
                 </a></li>
