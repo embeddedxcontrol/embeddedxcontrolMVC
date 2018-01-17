@@ -3,3 +3,5 @@
 12/27/2017 8:35:40 PM: Entity of type "AspNetProject" in state "Added" has the following validation errors:
 - Property: "Topic", Error: "The Topic field is required."
 - Property: "Summary", Error: "The field Summary must be a string or array type with a maximum length of '500'."
+1/17/2018 5:32:31 AM: Entity of type "AspNetProject" in state "Added" has the following validation errors:
+- Property: "Topic", Error: "The Topic field is required."
