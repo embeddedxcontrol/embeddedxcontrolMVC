@@ -211,50 +211,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\EXC.MDF" />
-    <Content Include="Content\custom.css" />
-    <Content Include="Images\banner.png" />
-    <Content Include="Images\banner2.png" />
-    <Content Include="Images\bar.png" />
-    <Content Include="Images\buttonbg.png" />
-    <Content Include="Images\buttonbgHover.png" />
-    <Content Include="Images\circuit.jpg" />
-    <Content Include="Images\comment-bubble-left2.png" />
-    <Content Include="Images\comment-bubble-left3.png" />
-    <Content Include="Images\comment-bubble-right.png" />
-    <Content Include="Images\comment-bubble-right2.png" />
-    <Content Include="Images\comment-bubble-right3.png" />
-    <Content Include="Images\comment-bubble-tail-left2.png" />
-    <Content Include="Images\comment-bubble-tail-left3.png" />
-    <Content Include="Images\comment-bubble-tail-original.png" />
-    <Content Include="Images\comment-bubble-tail-original2.png" />
-    <Content Include="Images\comment-bubble-tail-right.png" />
-    <Content Include="Images\comment-bubble-tail-right2.png" />
-    <Content Include="Images\comment-bubble-tail-right3.png" />
-    <Content Include="Images\comment-bubble-tail.png" />
-    <Content Include="Images\comment-bubble.png" />
+    <Content Include="Content\blog-post.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Images\Default_Bio_Picture.png" />
-    <Content Include="Images\default_project_summary_thumbnail_image.png" />
     <Content Include="Images\favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
-    <Content Include="Images\header1.png" />
-    <Content Include="Images\header1_alt.png" />
-    <Content Include="Images\login-hover.png" />
-    <Content Include="Images\login.png" />
-    <Content Include="Images\loginArrow.png" />
-    <Content Include="Images\loginbuttonbg.png" />
-    <Content Include="Images\logo1.png" />
-    <Content Include="Images\logo2.png" />
-    <Content Include="Images\logo3.png" />
-    <Content Include="Images\logo4.png" />
-    <Content Include="Images\matlab.png" />
-    <Content Include="Images\menu-hover.png" />
-    <Content Include="Images\project-background.png" />
-    <Content Include="Images\register-hover.png" />
-    <Content Include="Images\register.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -262,8 +226,6 @@
     </Content>
     <Content Include="Images\x.ico" />
     <Content Include="Images\x2.ico" />
-    <Content Include="Images\banner.psd" />
-    <Content Include="Images\logo-create-a-science-cool-log.zip" />
     <Content Include="Scripts\ckeditor.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor.js" />
@@ -277,8 +239,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Images\thumbnail_test.png" />
-    <Content Include="Images\updates-background.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -319,6 +279,11 @@
     <Content Include="Views\Shared\_PageMenuPartial.cshtml" />
     <Content Include="Views\Projects\CreateOrEdit.cshtml" />
     <Content Include="Views\Projects\ProjectView.cshtml" />
+    <Content Include="Views\Projects\TestCodeView.cshtml" />
+    <Content Include="Views\Shared\_SearchWidgetPartial.cshtml" />
+    <Content Include="Views\Shared\_ProjectTagsPartial.cshtml" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\Shared\_LogoPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\embeddedxcontrol.Business\embeddedxcontrol.Business.csproj">
@@ -352,6 +317,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711300131463_AddIdentity.resx">
       <DependentUpon>201711300131463_AddIdentity.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

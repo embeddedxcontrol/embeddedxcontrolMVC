@@ -2,10 +2,42 @@
     Layout = null;
 }
 
-<div class="col-sm-12">
-    <div class="col-sm-12" style="background-color:#09202e; color:#00c1dd; height:20px; width:100%;">
-        <ul class="list-inline menu" style="display:table; width:100%; table-layout:fixed;">
-            <li style="display:table-cell; text-align:center;">@Html.ActionLink("Create New Project", "Create", "Projects")</li>
-        </ul>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-exc-black fixed-top">
+    <div class="container">
+        <div class="navbar-toggler" data-toggle="collapse" data-target="#userBtns" aria-controls="userBtns" aria-expanded="true">
+            <ul class="nav navbar-nav  navbar-left d-flex">
+                <li class="nav-item d-flex align-items-center mr-2"><a class="nav-link exc-text-color1" href="@Url.Action("Login", "Account")"><i class="fa fa-user-o mr-2" aria-hidden="true"></i></a></li>
+                <li class="nav-item d-flex align-items-center mr-2"><a class="nav-link exc-text-color1" href="@Url.Action("Register", "Account")"><i class="fa fa-pencil-square-o mr-2" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        <div id="userBtns" class="collapse navbar-collapse">
+            <ul id="userBtns" class="nav navbar-nav  navbar-left d-flex">
+                <li class="nav-item d-flex align-items-center mr-2"><a class="nav-link exc-text-color1" href="@Url.Action("Login", "Account")"><i class="fa fa-user-o mr-2" aria-hidden="true"></i>Login</a></li>
+                <li class="nav-item d-flex align-items-center mr-2"><a class="nav-link exc-text-color1" href="@Url.Action("Register", "Account")"><i class="fa fa-pencil-square-o mr-2" aria-hidden="true"></i>Register</a></li>
+            </ul>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars exc-text-color1" aria-hidden="true"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link exc-text-color1" href="@Url.Action("Index", "Home")" >
+                        Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link exc-text-color1" href="@Url.Action("About", "Home")" >About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link exc-text-color1" href="@Url.Action("Index", "Projects")" >Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link exc-text-color1" href="@Url.Action("Contact", "Home")" >Contact</a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+</nav>

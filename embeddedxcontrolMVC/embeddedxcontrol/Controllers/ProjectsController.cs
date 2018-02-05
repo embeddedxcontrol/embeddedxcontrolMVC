@@ -108,8 +108,40 @@ namespace embeddedxcontrol.Controllers
 
             return RedirectToAction("Index");
         }
-           
-      
+
+        /// <summary>
+        /// This is a sample action for returning a test page to view styling
+        /// </summary>
+        /// <param name="topicFilter"></param>
+        /// <returns></returns>
+        public ActionResult TestCodeView(string topicFilter)
+        {
+            IEnumerable<ProjectEntity> projectSummaries;
+            projectSummaries = _projectServices.GetAllProjects(topicFilter);
+            _userServices = new UserServices();
+
+            //Map ProjectEntity to ProjectListViewModel       
+            List<ProjectListViewModel> plvm = new List<ProjectListViewModel>();
+            foreach (ProjectEntity p in projectSummaries)
+            {
+                //Project list item pli
+                ProjectListViewModel pli = new ProjectListViewModel();
+                pli.Id = p.Id;
+                pli.Title = p.Title;
+                pli.Summary = p.Summary ?? "Summary not found";
+                var authorQuery = _userServices.GetUserDataById(p.AuthorId);
+                pli.Author = !string.IsNullOrWhiteSpace(authorQuery.FirstName) ? string.Concat(authorQuery.FirstName + " " + authorQuery.LastName) : authorQuery.UserName;
+                pli.Topic = p.Topic ?? "";
+                plvm.Add(pli);
+            }
+            //Write out topics list and pass to page through ViewBag
+            var topics = (from data in projectSummaries.AsQueryable() select data.Topic).Distinct().OrderBy(Topic => Topic).ToList();
+            ViewBag.Topics = (List<string>)topics;
+
+            return View(plvm);
+        }
+
+
 
     }
 

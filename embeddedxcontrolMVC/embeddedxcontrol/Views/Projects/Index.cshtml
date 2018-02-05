@@ -1,13 +1,117 @@
 ﻿@model IEnumerable<embeddedxcontrol.Models.ProjectListViewModel>
 
 @{
-    ViewBag.MenuTitle = "TOPICS";
-    ViewBag.PageTitle = "PROJECTS";
+    ViewBag.PageTitle = "Projects";
 }
 
-@Html.Partial("_PageMenuPartial")
+<div class="row">
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
 
-<div class="col-sm-3">
+    @Html.Partial("_LogoPartial")
+
+    <div class="card exc-card-border">
+        <!-- Title -->
+        <div class="card-header bg-white">
+            <h1 class="mt-4">@ViewBag.PageTitle</h1>
+        </div>
+
+        <!-- Post Content -->
+        <div class="card-body">
+
+            @foreach (var p in Model)
+            {
+                <a href="@Url.Action("GetProject", routeValues: new {id = (string)p.Id })">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>@Html.DisplayName(p.Title)</h4>
+                            <p>@Html.Raw(p.Author)</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-left">
+                                @Html.DisplayName(p.Summary)
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <div class="container mt-2">
+                    <!--Spacing between project containers-->
+                </div>
+            }
+
+        </div>
+    </div>
+    <!-- Comments Form -->
+    <div class="card exc-card-border my-4">
+        <h5 class="card-header exc-card-header">Leave a Comment:</h5>
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <hr />
+            @*</div>*@
+            @*</div>*@
+            <!-- Single Comment -->
+            <div class="media mb-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <div class="media-body">
+                    <h5 class="mt-0">Commenter Name</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+            <!-- Comment with nested comments -->
+            <div class="media mb-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <div class="media-body">
+                    <h5 class="mt-0">Commenter Name</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                    <div class="media mt-4">
+                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                        <div class="media-body">
+                            <h5 class="mt-0">Commenter Name</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div>
+                    <div class="media mt-4">
+                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                        <div class="media-body">
+                            <h5 class="mt-0">Commenter Name</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4 bg-exc1">
+
+        @Html.Partial("_SearchWidgetPartial")
+
+        @Html.Partial("_ProjectTagsPartial")
+
+        <!-- Side Widget -->
+        <div class="card exc-card-border my-4">
+            <h5 class="card-header exc-card-header">Side Widget</h5>
+            <div class="card-body">
+                You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+@*<div class="col-sm-3">
     <div class="col-sm-12" style="background-color:white; height:100%; padding-bottom:20px;">
         <h2 style="padding-top:12px;">@ViewBag.MenuTitle</h2>
         <hr style="border-color:gray; margin-top:0px;" />
@@ -16,68 +120,11 @@
             {
                 <li>@Html.ActionLink((string)item, "Index", "Projects", routeValues: new { topicFilter = (string)item }, htmlAttributes: null)</li>
             }
-            
-        </ul>
-            <p>Click on topic to filter results.</p>
-</div>
-</div>
-<div class="col-sm-9">
-    <div class="col-sm-12" style="background-color:white; height:100%; padding-bottom:20px;">
-        <h2 style="padding-top:12px;">@ViewBag.PageTitle</h2>
-        <hr style="border-color:gray; margin-top:0px;" />
-        <ul class="col-sm-12 list-unstyled">
-
-            @foreach (var p in Model)
-            {
-                <li class="col-sm-12 text-left" style="overflow:hidden;"><a href="@Url.Action("GetProject", routeValues: new {id = (string)p.Id })" class="btn btn-primary col-sm-12">
-                <div class="col-sm-12 d-flex justify-content-end">
-                    @Html.DisplayName(p.Title)  <br />
-                    <p>@Html.Raw(p.Author)</p>
-                    <hr />
-                </div>
-                <div class="container col-sm-12 d-flex justify-content-end">
-                    <p class="text-left">
-                        @Html.DisplayName(p.Summary)
-                    </p>
-                </div>
-                </a></li>
-
-
-
-                @*<li style="border:2px solid #00c1dd; border-radius:4px; margin-top:10px; margin-left:10px; margin-right:30px; min-height:50px; overflow:hidden;" onclick="redir('<%# Eval(" Id") %>
-                    ');">
-
-                    <div style="margin:0px; padding:0px;">
-                        <%--Total width of block is 700px--%>
-
-                        <div style="float:left; background-color:#ff6e25; width:110px; margin:5px; text-align:center; font-size:smaller; border-radius:2px;">
-                            <span class="imgcenter">
-                                <asp:Image runat="server" ImageUrl="~/Images/default_project_summary_thumbnail_image.png" /><%--Resize image to 100px x 100px--%>
-                                </pre><asp:Label ID="lblTopic" runat="server" Text='<%# Eval("Topic") %>' />
-                            </span>
-                        </div>
-                        <div style="float:left; width:490px; margin:5px;">
-                            <h6 style="margin:0px; padding:0px;"><asp:Literal ID="lblTitle" runat="server" Text='<%# Eval("Title") %>' /></h6>
-                            <span style="font-style:italic;">
-                                Author(s)&nbsp:&nbsp<asp:Label runat="server" ID="lblAuthor" Text='<%# Eval("FullName") %>' />
-                                &nbsp ( <asp:Label runat="server" ID="lblDate" OnDataBinding="lblDate_DataBinding" />)
-                            </span>
-                            <hr style="margin-top:3px; margin-bottom:3px;" />
-                            <asp:Label ID="lblSummary" CssClass="article-summary" runat="server" Text='<%# Eval("Summary") %>' />
-                        </div>
-
-                    </div>
-                </li>*@
-
-            }
-
 
         </ul>
-
-
-
-</div>
-</div>
+        <p>Click on topic to filter results.</p>
+    </div>
+</div>*@
 
 
 

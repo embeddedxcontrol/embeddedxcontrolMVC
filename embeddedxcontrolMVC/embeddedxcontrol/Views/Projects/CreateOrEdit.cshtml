@@ -111,7 +111,7 @@
                                     ]
                                 }
                             })
-                            .styles
+                            //.styles
                             .then(editor => {
                                 editor.plugins.get('FileRepository').createAdapter = function (loader) {
                                     return new Base64ImageAdapter(loader);

@@ -11,74 +11,22 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/bootstrap")
 
+    <script src="https://use.fontawesome.com/447f9a250a.js"></script>
+
 </head>
-<body style="background-color:#0a0c18 ">
-    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:black;">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3 col-sm-offset-8">
-                    @Html.Partial("_LoginPartial")
-   
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container"> 
-        <div class="row">
-            <div class="container col-sm-offset-1 col-sm-10" style="background-color:#09202e; color:#00c1dd;">
-                <div class="col-sm-10" style="height:20px;">@*Filler div*@</div>
-                <div class="col-sm-5">
-                    <a href="@Url.Action("Index", "Home")" class="navbar-left"><img src="~/Images/logo4.png" /></a>
-                </div>
-                <div class="col-sm-5">@*Filler div*@</div>
-                <div class="col-sm-10" style="height:10px;"></div>
-                <div class="col-sm-6 col-sm-offset-6">
-                    <ul class="list-inline menu">
-                        <li class="list-inline-item">@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li class="list-inline-item">@Html.ActionLink("About", "About", "Home")</li>
-                        <li class="list-inline-item">@Html.ActionLink("Projects", "Index", "Projects")</li>
-                        <li class="list-inline-item">@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    </ul>
-                </div>
-                <div class="col-sm-10" style="height:5px;">@*Filler div*@</div>
-            </div>
-      </div>
-        <div class="row">
-            <div class="container col-sm-offset-1 col-sm-10" style="background-color:white;">
-                <div class="col-sm-10" style="height:20px;">@*Filler div*@</div>
-                <div class="col-sm-10 header-images" >
-                    <h1>THEORY & SOFTWARE for the INTERNET of THINGS</h1>
-                    <p>
-                        Where does control theory meet reality in a world where machines are expected to be smarter?
-                        ...<a href="@Url.Action("About", "Home")" class="navbar-left">MORE</a>
-                    </p>
-                </div>
-                <div class="col-sm-10" style="height:20px;">@*Filler div*@</div>
-            </div>
-        </div> 
-    </div>
+<body class="bg-body">
 
-    <div class="container body-content" >
-        <div class="row">
-            <div class="col-sm-10 col-sm-offset-1" style="height:20px; background-color:#09202e;">@*Filler div between banner and content*@</div>
-        </div>
-        <div class="row">
-            <div class="col-sm-offset-1 col-sm-10" style="background-color:#09202e;">
-                <div class="row equal">
-                    @RenderBody()
+    @Html.Partial("_PageMenuPartial")
 
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="container col-sm-offset-1 col-sm-10" style="background-color:#09202e; color:white">
-                <hr/>
-                <footer>
-                    <p style="text-align:center;">&copy;2015 - @DateTime.Now.Year Embedded X Control v2.0.1</p>
-                </footer>
-            </div>
-        </div>
-     </div>
+    <!-- Page Content -->
+    <div class="container bg-exc1  exc-grey-font">
+
+    @RenderBody();
+
+    </div>
+    <!-- /.container -->
+
+    @Html.Partial("_FooterPartial")
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

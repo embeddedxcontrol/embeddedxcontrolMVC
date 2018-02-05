@@ -3,11 +3,6 @@
     padding-bottom: 20px;
 }
 
-/* Set maximum width on images in ProjectView.cshtml*/
-.imgdiv img {
-    width: 75%;
-}
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -28,74 +23,62 @@ textarea {
     max-width: 280px;
 }
 
-/*Custom CSS form menu (Home About Projects Contact)*/
-.menu {
-    margin: auto;
-    padding: 0px; /*new*/
-    width: 99%;
-    height: 25px;
-    /*padding-top:5px; ORIGINAL*/
+
+.bg-body {
+    background-color: #0a0c18; /*Darker blue*/
 }
 
-    .menu li {
-        font-family: 'Open Sans', sans-serif;
-        /*display: inline;*/
-        list-style-type: none;
-        margin: 0px;
-        padding: 0px;
-        /*padding-right:20px; ORIGINAL*/
+.exc-grey-font {
+    color: #656565;
+}
+
+    .exc-grey-font a {
+        color: #323232;
     }
 
-    .menu a {
-        text-decoration: none;
-        padding: 6px 30px; /*new*/
-        font-family: 'Open Sans', sans-serif;
-        border: solid 1px;
-        border-radius: 3px;
-        border-color: #09202e;
-        color: #00c1dd; /* Font color to match Logo 1 */
-    }
+.bg-exc1 {
+    background-color: #09202e; /*Lighter blue*/
+}
 
-    .menu a:hover {
-        color: #ff6e25; /* Font color to match Logo 1 */
-        /*background:url(/Images/menu-hover.png);*/
-        border: solid 1px;
-        border-radius: 3px;
-        border-color: #ff6e25;
-    }
+.bg-exc2 {
+    background-color: #0a0c18;
+}
+
+.exc-card-header {
+    background-color: #00c1dd; /*light blue*/
+}
+
+.bg-exc-black {
+    background-color: #000000;
+}
+
+.exc-card-border {
+    border-color: #00c1dd; /*light blue*/
+}
+
+.exc-text-color1 {
+    color: #00c1dd;
+}
+
+.navbar-nav a.exc-text-color1:hover {
+    color: #ff6e25; /*orange*/
+}
+
+.navbar-nav a.exc-text-color1:active {
+    color: #ff6e25;
+}
+
+.btn {
+    border: 0 none;
+}
 
 
-    .header-images {
-        height: auto;
-        width: 100%;
-        background: url(/Images/banner.png) no-repeat top right, url(/Images/header1.png) no-repeat top right;
-    }
+.btn-primary {
+    background: #ff6e25;
+    border-radius: 0;
+}
 
-        .header-images h1 {
-            font-family: 'Open Sans', sans-serif;
-            color: white;
-            font-size: 35px;
-            padding-left: 40px;
-            padding-top:5px;
-            margin-top: 0px;
-            /*padding-top: -15px;*/
-            display: block;
-            height: 50px;
-        }
-
-    .header-images p {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 15px;
-        padding-left: 35px;
-        padding-right: 550px;
-    }
-
-    .header-images a {
-        text-decoration: none;
-    }
-
-    .equal {
-        display: flex;
-        /*display: -webkit-flex;*/
-        flex-wrap: wrap;
-    }
+.btn-secondary {
+    background: #ff6e25;
+    border-radius: 0;
+}

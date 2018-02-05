@@ -1,26 +1,53 @@
 ﻿@{
-    ViewBag.PageTitle = "ABOUT";
+    ViewBag.PageTitle = "About";
 }
 
-<div class="col-sm-10 col-sm-offset-1">
-    <div class="col-sm-12" style="background-color:white; height:100%; padding-bottom:20px;">
-        <h2 style="padding-top:12px;">@ViewBag.PageTitle</h2>
-        <hr style="border-color:gray; margin-top:0px;" />
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p>
-            NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-        </p>
+<div class="row">
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
 
-        <p>
-        You can easily find a web hosting company that offers the right mix of features and price for your applications.
-        </p>
+        @Html.Partial("_LogoPartial")
+
+
+        <div class="card exc-card-border">
+
+
+            <!-- Title -->
+            <div class="card-header bg-white">
+                <h1 class="mt-4">@ViewBag.PageTitle</h1>
+            </div>
+
+            <!-- Post Content -->
+            <div class="card-body">
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+                <blockquote class="blockquote">
+                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <footer class="blockquote-footer">
+                        Someone famous in
+                        <cite title="Source Title">Source Title</cite>
+                    </footer>
+                </blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+            </div>
+        </div>
+    </div>
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4 bg-exc1">
+
+        @Html.Partial("_SearchWidgetPartial")
+
+        @Html.Partial("_ProjectTagsPartial")
+
+        <!-- Side Widget -->
+        <div class="card exc-card-border my-4">
+            <h5 class="card-header exc-card-header">Side Widget</h5>
+            <div class="card-body">
+                You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            </div>
+        </div>
     </div>
 </div>
-
-
-
-
+<!-- /.row -->

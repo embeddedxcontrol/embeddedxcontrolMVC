@@ -1,0 +1,72 @@
+﻿@model IEnumerable<embeddedxcontrol.Models.ProjectListViewModel>
+
+@{
+    ViewBag.MenuTitle = "TOPICS";
+    ViewBag.PageTitle = "PROJECTS";
+}
+
+@Html.Partial("_PageMenuPartial")
+
+<div class="col-sm-3">
+    <div class="col-sm-12" style="background-color:white; height:100%; padding-bottom:20px;">
+        <h2 style="padding-top:12px;">@ViewBag.MenuTitle</h2>
+        <hr style="border-color:gray; margin-top:0px;" />
+        <div class="panel">
+            @foreach (var item in ViewBag.Topics)
+            {
+                <div class="panel-heading-md">
+                    @Html.ActionLink((string)item, "TestCodeView", "Projects", routeValues: new { topicFilter = (string)item }, htmlAttributes: null)
+                </div>
+            }
+            <div class="panel-body-md">
+                <p>Click on topic to filter results.</p>
+                <p>Clear filter</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="col-sm-9">
+    <div class="col-sm-12" style="background-color:white; height:100%; padding-bottom:20px;">
+        <h2 style="padding-top:12px;">@ViewBag.PageTitle</h2>
+        <hr style="border-color:gray; margin-top:0px;" />
+
+        @foreach (var p in Model)
+        {
+
+            @*<a href="@Url.Action("GetProject", routeValues: new {id = (string)p.Id })">*@
+
+                <div class="row">
+                    <div class="col-=md-12 mb-12">
+                        <div class="card h-100"> 
+                            <div class="card-body">
+                                <h2 class="card-title">@Html.DisplayName(p.Title)</h2>
+                                <p>@Html.DisplayName(p.Summary)</p>
+                                @*@Html.Raw(p.Author)*@
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">More Info</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @*</a>*@
+        }
+    </div>
+
+</div>
+</div>
+
+
+@*<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h2 class="card-title">Card One</h2>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary">More Info</a>
+            </div>
+        </div>
+    </div>*@
